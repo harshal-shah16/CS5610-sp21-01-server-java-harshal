@@ -23,10 +23,12 @@ public class WidgetService {
   }
   // implement crud operations
   public Widget createWidgetForTopic(String tid, Widget widget) {
+
     Long id = (new Date()).getTime();
     widget.setId(id);
     widget.setTopicId(tid);
     widgets.add(widget);
+
     return widget;
   }
   public List<Widget> findAllWidgets() {
@@ -51,16 +53,19 @@ public class WidgetService {
     return null;
   }
   public Integer updateWidget(Long id, Widget newWidget) {
+
     for(int i=0; i<widgets.size(); i++) {
       Widget w = widgets.get(i);
+
       if(w.getId().equals(id)) {
         widgets.set(i, newWidget);
         return 1;
       }
     }
-    return -1;
+    return 0;
   }
   public Integer deleteWidget(Long id) {
+
     int index = -1;
     for(int i=0; i<widgets.size(); i++) {
       Widget w = widgets.get(i);
@@ -68,8 +73,11 @@ public class WidgetService {
         index = i;
       }
     }
+
     if(index >= 0) {
+
       widgets.remove(index);
+
       return 1;
     }
     return -1;
