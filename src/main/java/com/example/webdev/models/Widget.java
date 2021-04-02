@@ -54,7 +54,7 @@ public class Widget {
   }
 
   private String url;
-  private String size;
+  private Integer size;
   private Integer width;
   private Integer height;
   private String cssClass;
@@ -88,11 +88,11 @@ public class Widget {
     this.type = type;
   }
 
-  public String getSize() {
+  public Integer getSize() {
     return size;
   }
 
-  public void setSize(String size) {
+  public void setSize(Integer size) {
     this.size = size;
   }
 
@@ -108,7 +108,7 @@ public class Widget {
     this.ordered = true;
   }
 
-  public Widget(Long id, String topicId, String type, String size, String text) {
+  public Widget(Long id, String topicId, String type, Integer size, String text) {
     this.id = id;
     this.topicId = topicId;
     this.type = type;
