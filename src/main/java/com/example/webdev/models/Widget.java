@@ -1,13 +1,60 @@
 package com.example.webdev.models;
 
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table
 public class Widget {
-  private String name;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
+  private String name;
   private String type;
-  private Integer widgetOrder;
+
   private String text;
+
+  public Boolean getOrdered() {
+    return ordered;
+  }
+
+  public void setOrdered(Boolean ordered) {
+    this.ordered = ordered;
+  }
+
+  private Boolean ordered;
+
+  public String getUrl() {
+    return url;
+  }
+
+  public void setUrl(String url) {
+    this.url = url;
+  }
+
+  public Integer getWidth() {
+    return width;
+  }
+
+  public void setWidth(Integer width) {
+    this.width = width;
+  }
+
+  public Integer getHeight() {
+    return height;
+  }
+
+  public void setHeight(Integer height) {
+    this.height = height;
+  }
+
   private String url;
-  private Integer size;
+  private String size;
   private Integer width;
   private Integer height;
   private String cssClass;
@@ -41,11 +88,11 @@ public class Widget {
     this.type = type;
   }
 
-  public Integer getSize() {
+  public String getSize() {
     return size;
   }
 
-  public void setSize(Integer size) {
+  public void setSize(String size) {
     this.size = size;
   }
 
@@ -58,13 +105,15 @@ public class Widget {
   }
 
   public Widget() {
+    this.ordered = true;
   }
 
-  public Widget(Long id, String topicId, String type, Integer size, String text) {
+  public Widget(Long id, String topicId, String type, String size, String text) {
     this.id = id;
     this.topicId = topicId;
     this.type = type;
     this.size = size;
     this.text = text;
+    this.ordered = true;
   }
 }
